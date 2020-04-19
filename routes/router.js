@@ -1,4 +1,5 @@
 const router = require('express').Router();
+const userController = require('../controller/users.controller.js');
 
 router.get('/', function(req, res){
     res.send('Web Server Node Js With Router');
@@ -27,5 +28,13 @@ router.get('/about', function(req, res){
 router.get('/profile', function(req, res){
     res.redirect('/');
 });
+
+router.get('/users', userController.getUsers);
+
+router.post('/users', userController.addUsers);
+
+router.put('/users', userController.updateUsers);
+
+router.delete('/users', userController.deleteUsers);
 
 module.exports = router;
